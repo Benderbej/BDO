@@ -8,4 +8,8 @@ public class TESTCLASS {
         System.err.println("OLOLO");
         System.out.println("TROLOLO");
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
