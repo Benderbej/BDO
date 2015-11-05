@@ -7,5 +7,11 @@ public class TESTCLASS {
     {
         System.err.println("OLOLO");
         System.out.println("TROLOLO");
+                System.out.println("TROLOLO");
+
+                        System.out.println("TROLOLO");
+
+                                System.out.println("TROLOLO");
+
     }
 }
