@@ -11,9 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLTimeoutException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.util.ArrayList;
-import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -89,31 +86,31 @@ public class ServerDb implements Constatnts {
     }
 
     public int insertDb(String sql) {
-        int rezult = 0;
+        int result = 0;
         try {
             st = conn.createStatement();
-            rezult = st.executeUpdate(sql);
+            result = st.executeUpdate(sql);
             st.close();
         } catch (SQLTimeoutException ex) {
             System.out.println("ServerDb:insertDb():Ошибка подключения или создание Statement - " + ex + " sql: " + sql);
         } catch (SQLException ex) {
             System.out.println("ServerDb:insertDb():Ошибка подключения или создание Statement - " + ex + " sql: " + sql);
         }
-        return rezult;
+        return result;
     }
 
     public int updateDb(String sql) {
-        int rezult = 0;
+        int result = 0;
         try {
             st = conn.createStatement();
-            rezult = st.executeUpdate(sql);
+            result = st.executeUpdate(sql);
             st.close();
         } catch (SQLTimeoutException ex) {
             System.out.println("ServerDb:updateDb():Ошибка подключения или создание Statement - " + ex + " sql: " + sql);
         } catch (SQLException ex) {
             System.out.println("ServerDb:updateDb():Ошибка подключения или создание Statement - " + ex + " sql: " + sql);
         }
-        return rezult;
+        return result;
     }
 
     public ResultSet selectDb(String sql) {
