@@ -128,7 +128,16 @@ public class ServerDb implements Constatnts {
     }
     
     public ResultSet getRecept(){
-        return selectDb("SELECT \"rec\".\"nameItem\" AS \"Рецепт\",\"sItems\".\"nameItem\" AS \"Составляющее\" FROM public.\"dRecept\", public.\"dReceptSostav\",  public.\"sItems\" as \"rec\", public.\"sItems\" WHERE \"dReceptSostav\".idrecept = \"dRecept\".idrecept AND \"rec\".\"idItem\" = \"dRecept\".iditem AND \"sItems\".\"idItem\" = \"dReceptSostav\".iditem ORDER BY \"rec\".\"nameItem\"");
+        return selectDb("SELECT \n" +
+"  \"dRecept\".idrecept, \n" +
+"  \"dRecept\".iditem AS \"idItemRecept\", \n" +
+"  \"dReceptSostav\".iditem AS \"idItemIngr\", \n" +
+"  \"dReceptSostav\".kol\n" +
+"FROM \n" +
+"  public.\"dRecept\", \n" +
+"  public.\"dReceptSostav\"\n" +
+"WHERE \n" +
+"  \"dReceptSostav\".idrecept = \"dRecept\".idrecept");
     }
 
     @Override
