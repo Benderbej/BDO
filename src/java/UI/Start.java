@@ -131,20 +131,26 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_butConnActionPerformed
 
     private void fillRecipesCollection() {
+        int recipe_id = -1;
+        int item_result_id = -1;
+        HashSet<Item> items_list = new HashSet<>();
+        HashSet<Integer> item_quantity = new HashSet<>();
         try {
             ResultSet rs = sdb.getItems();
-            HashSet<Item> items_list;
-            HashSet<Integer> item_quantity;
+
             while (rs.next()) {// забиваем коллекцию итемов собственно данными
-                //SELECT \"rec\".\"nameItem\" AS \"Рецепт\",\"sItems\".\"nameItem\" AS \"Составляющее\" FROM public.\"dRecept\", public.\"dReceptSostav\",  public.\"sItems\" as \"rec\", public.\"sItems\" WHERE \"dReceptSostav\".idrecept = \"dRecept\".idrecept 
-                //AND \"rec\".\"idItem\" = \"dRecept\".iditem AND \"sItems\".\"idItem\" = \"dReceptSostav\".iditem ORDER BY \"rec\".\"nameItem\""
-           //     item_list.addItem(new Item)
+
                 // min\max цены указаны нулями - нужно возвращать что-нибудь более интересное из базы
+                recipe_id = rs.getInt(1);
+                item_result_id = rs.getInt(2);
+                items_list.add(item_list.getItem(rs.getInt(3)));
+                item_quantity.add(rs.getInt(4));
             }
-            //recipe_list.addRecipe(new Recipe(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), 0, 0));
         } catch (SQLException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
+        recipe_list.addRecipe(new Recipe(recipe_id,item_result_id ,items_list,item_quantity));
+
     }
 
     private void fillItemsCollection() {

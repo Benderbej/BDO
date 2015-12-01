@@ -19,7 +19,10 @@ public class CalcMinMax {
     }
 
     public CalcMinMax() {
-        ResultSet rs=Start.sdb.getItems();
+       
+        
+    }
+    public CalcMinMax(int item_id){
         
     }
 
