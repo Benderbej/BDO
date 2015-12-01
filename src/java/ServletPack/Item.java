@@ -169,5 +169,19 @@ public class Item {
         this.item_group = -1;
         this.item_refPicture = "";
     }
+        /**
+     * конструктор для ItemAsIngr
+     *
+     * @param item_id
+     */
+    public Item(int item_id) {
+        this.item_id = item_id;
+        this.item_name = "";
+        this.item_type1 = 0;
+        this.item_type2 = 0;
+        this.item_typeofspoil = 0;
+        this.item_group = 0;
+        this.item_refPicture = "";
 
+    }
 }

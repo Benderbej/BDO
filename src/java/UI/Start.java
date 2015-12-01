@@ -130,7 +130,7 @@ public class Start extends javax.swing.JFrame {
         fillRecipesCollection();
     }//GEN-LAST:event_butConnActionPerformed
 
-    private void fillItemsCollection() {
+    private void fillRecipesCollection() {
         try {
             ResultSet rs = sdb.getItems();
             HashSet<Item> items_list;
@@ -141,13 +141,13 @@ public class Start extends javax.swing.JFrame {
            //     item_list.addItem(new Item)
                 // min\max цены указаны нулями - нужно возвращать что-нибудь более интересное из базы
             }
-          //  recipe_list.addRecipe(new Recipe(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), 0, 0));
+            recipe_list.addRecipe(new Recipe(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), 0, 0));
         } catch (SQLException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void fillRecipesCollection() {
+    private void fillItemsCollection() {
         try {
             ResultSet rs = sdb.getRecept();
 
