@@ -22,9 +22,20 @@ import server.ServerDb;
  */
 public class Start extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     public static ServerDb sdb;
-    public ItemList item_list;
-    public RecipeList recipe_list;
+
+    /**
+     *
+     */
+    public static ItemList item_list;
+
+    /**
+     *
+     */
+    public static RecipeList recipe_list;
 
     /**
      *
