@@ -4,7 +4,13 @@
     Author     : Ostap
 --%>
 
+<!--%@page import="serverDb.ServerDb"%-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="ConnectBean" class="serverDb.ConnectBean" />
+<!--jsp:useBean id="ServerDb" class="serverDb.ServerDb"/>-->
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,8 +75,25 @@
         
         
         
-        
-        
+        <%
+            int i=4;
+            int j= ConnectBean.intfunc(4);
+            out.print("j="+j);
+
+            
+            
+//        ServerDb sdb;   
+
+//            String strConn = "jdbc:postgresql://localhost:5432/bdoMarket";   //jdbc:postgresql://localhost/testdb
+//            String login = "postgres";
+//            String pwd = "sa";
+
+//            sdb = new ServerDb(strConn, login, pwd);
+            //sdb.getItems();
+            //sdb.getRecept();
+//            System.out.println("Подключение выполненно!");
+                    
+        %>
         
         
         

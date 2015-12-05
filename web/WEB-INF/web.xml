@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <resource-ref>
+        <description>postgreSQL Datasource</description>
+        <res-ref-name>jdbc/postgres</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        DB Connection
+        </resource-ref>
+    <servlet>
+        <servlet-name>ConnectionServlet</servlet-name>
+        <servlet-class>ConnectionServlet</servlet-class>
+        <init-param>
+            <param-name>dbName</param-name>
+            <param-value>BDO</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Bill</servlet-name>
+        <servlet-class>InterShop.Bill</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConnectDbBean</servlet-name>
+        <servlet-class>ServletPack.ConnectDbBean</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnectionServlet</servlet-name>
+        <url-pattern>/connect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnectDbBean</servlet-name>
+        <url-pattern>/ConnectDbBean</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
