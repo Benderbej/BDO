@@ -13,3 +13,6 @@
 
 dist/TrekerManager.jar
 *.properties
+src/java/ServletPack/ConnectDbBean.java
+src/java/serverDb/Methods.java
+*.java
