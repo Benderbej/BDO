@@ -6,8 +6,8 @@
 package ServletPack;
 
 import UI.Start;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import server.Core;
 
 /**
  *
@@ -25,8 +25,8 @@ public class CalcMinMax {
     }
 
     public CalcMinMax(int item_id) {
-        this.current_item = Start.item_list.getItem(item_id);
-        this.current_recipe = Start.recipe_list.getRecipe(item_id);
+        this.current_item = Core.getItemList().getItem(item_id);
+        this.current_recipe = Core.getRecipeList().getRecipe(item_id);
     }
 
     /**
@@ -35,8 +35,8 @@ public class CalcMinMax {
      * @return
      */
     public ArrayList calc(int item_id) {
-        this.current_item = Start.item_list.getItem(item_id);
-        this.current_recipe = Start.recipe_list.getRecipe(item_id);
+        this.current_item = Core.getItemList().getItem(item_id);
+        this.current_recipe = Core.getRecipeList().getRecipe(item_id);
         double sellMaxPrice = current_item.getItem_maxprice() * aucRate;
         double sellMinPrice = current_item.getItem_minprice() * aucRate;
         double sellMedPrice = current_item.getItem_medprice() * aucRate;
