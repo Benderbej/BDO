@@ -2,8 +2,8 @@
 /build/*
 /nbproject/*
 /ArhDb/*
-/ФайлыДляИмпорта/*
-/ФайлыДляИмпорта/.
+/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/*
+/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/.
 *.class
 *.bak
 
@@ -18,3 +18,5 @@ dist/TrekerManager.jar
 src/java/ServletPack/ConnectDbBean.java
 src/java/serverDb/Methods.java
 *.java
+!/src/java/server/PortalCore.java
+!/src/java/server/Core.java
