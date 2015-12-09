@@ -23,17 +23,12 @@ public class CalcMinMax {
 
     }
 
-<<<<<<< HEAD
-//    public CalcMinMax(int item_id) {
-//        this.current_item = Start.item_list.getItem(item_id);
-//        this.current_recipe = Start.recipe_list.getRecipe(item_id);
-//    }
-=======
+
     public CalcMinMax(int item_id) {
         this.current_item = Core.getItemList().getItem(item_id);
         this.current_recipe = Core.getRecipeList().getRecipe(item_id);
     }
->>>>>>> origin/master
+
 
     /**
      *
