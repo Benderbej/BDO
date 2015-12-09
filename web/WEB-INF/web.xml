@@ -5,8 +5,38 @@
         <res-ref-name>jdbc/postgres</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
-        DB Connection
-        </resource-ref>
+    </resource-ref>
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>
+            org.apache.catalina.servlets.DefaultServlet
+        </servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>newjsp</servlet-name>
+        <jsp-file>/newjsp.jsp</jsp-file>
+        <init-param>
+            <param-name>hello</param-name>
+            <param-value>test</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+        <init-param>
+            <param-name>hello</param-name>
+            <param-value>test</param-value>
+        </init-param>
+    </servlet>
     <servlet>
         <servlet-name>ConnectionServlet</servlet-name>
         <servlet-class>ConnectionServlet</servlet-class>
@@ -23,6 +53,18 @@
         <servlet-name>ConnectDbBean</servlet-name>
         <servlet-class>ServletPack.ConnectDbBean</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateDatasource</servlet-name>
+        <servlet-class>backend.UpdateDatasource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newjsp</servlet-name>
+        <url-pattern>/newjsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConnectionServlet</servlet-name>
         <url-pattern>/connect</url-pattern>
@@ -31,6 +73,19 @@
         <servlet-name>ConnectDbBean</servlet-name>
         <url-pattern>/ConnectDbBean</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateDatasource</servlet-name>
+        <url-pattern>/updateDatasource</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/design/*</url-pattern>
+    </servlet-mapping>
+    <!--<welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>-->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

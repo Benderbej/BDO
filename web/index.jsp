@@ -1,13 +1,69 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 19.11.2015, 15:41:34
+    Document   : index
+    Created on : 07.12.2015, 20:50:33
     Author     : Ostap
---%>
+--%>  
 
+
+
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="serverDb.ServerDb"%>
+<%@page import="backend.BaseData"%>
 <!--%@page import="serverDb.ServerDb"%-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="ConnectBean" class="serverDb.ConnectBean" />
-<!--jsp:useBean id="ServerDb" class="serverDb.ServerDb"/>-->
+<jsp:useBean id="RecipeListWidget" class="widgets.RecipeListWidget"/>
+<jsp:useBean id="BaseData" class="backend.BaseData"/>
+
+
+<%! public void jspInit() {   
+    
+    
+    
+    
+    BaseData bsdt = new BaseData();
+    bsdt.setInfo("informacia");
+    ServletContext context = this.getServletContext();
+    context.setAttribute("baseData", bsdt);
+
+ 
+    
+    String strConn = "jdbc:postgresql://localhost/bdoMarket";
+    String login = "postgres";
+    String pwd = "sa";
+    ServerDb sdb = new ServerDb(strConn, login, pwd);
+    
+    
+                   
+            ResultSet rs = sdb.getItems();  
+            
+                String it;
+                String res = "";
+                int i = 0;
+                try {
+                    rs.first();
+                    while(rs.next()){
+                        it = new String(rs.getString(1));//new String
+                        i++;
+                        res = res + " " + it;
+                    }
+                //sdb.getRecept();
+                } catch (SQLException ex) {
+                    System.out.println("index.jsp: jspInit(): SQLException");
+                }
+ 
+            
+            
+            //sdb.getItems();
+            //sdb.getRecept(); 
+    
+    
+    
+ }  
+%>
 
 
 
@@ -35,6 +91,7 @@
         
     </head>
     <body>
+
         <div id="main_block">
             <h1>BDO calculation</h1>
             <div class="materials_list">
@@ -71,34 +128,73 @@
                 </div>
             </div>
             
-        </div>
+        </div>        
+
         
+                
         
         
         <%
+            
+            
+          
+            
+            
             int i=4;
             int j= ConnectBean.intfunc(4);
             out.print("j="+j);
 
             
+            ServletContext context = this.getServletContext();
+            BaseData bsdt = (BaseData) context.getAttribute("baseData");
+
             
-//        ServerDb sdb;   
-
-//            String strConn = "jdbc:postgresql://localhost:5432/bdoMarket";   //jdbc:postgresql://localhost/testdb
-//            String login = "postgres";
-//            String pwd = "sa";
-
-//            sdb = new ServerDb(strConn, login, pwd);
-            //sdb.getItems();
-            //sdb.getRecept();
-//            System.out.println("Подключение выполненно!");
+            String info;
+            info = bsdt.getInfo();
+            out.println("<hr /><h1>stringinfo</h1>");
+            out.println("string="+info);
+            
+            
+            
+            
+//                String strConn = "jdbc:postgresql://localhost/bdoMarket";
+//                String login = "postgres";
+//                String pwd = "sa";
+//                ServerDb sdb = new ServerDb(strConn, login, pwd);
+/*                ServerDbPool sdb = new ServerDbPool();                 
+                
+                ResultSet rs = sdb.getItems();
+                
+            out.println("Подключение2:");                 
+                String it;
+                String res = "";
+                int i = 0;
+                try {
+                    rs.first();
+                    while(rs.next()){
+                        it = new String(rs.getString(1));//new String
+                        i++;
+                        res = res + " " + it;
+                    }
+                out.print(res);
+                //sdb.getRecept();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ConnectDbBean.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            out.println("Подключение выполнено!");   */
                     
-        %>
+         
+           
+            
+            
+        %>        
         
         
+       
         
         
-        
-        
+            
+end
+
     </body>
 </html>

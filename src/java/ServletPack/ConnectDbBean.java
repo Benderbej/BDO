@@ -49,9 +49,9 @@ public class ConnectDbBean extends HttpServlet {
             
 //                ServerDb sdb;   
 
-                String strConn = "jdbc:postgresql://localhost/bdoMarket";
-                String login = "postgres";
-                String pwd = "sa";
+//                String strConn = "jdbc:postgresql://localhost/bdoMarket";
+//                String login = "postgres";
+//                String pwd = "sa";
 //                ServerDb sdb = new ServerDb(strConn, login, pwd);
                 ServerDbPool sdb = new ServerDbPool();                 
                 
@@ -78,8 +78,6 @@ public class ConnectDbBean extends HttpServlet {
                 
                 
                 
-            
-            
             
             out.println("</body>");
             out.println("</html>");
